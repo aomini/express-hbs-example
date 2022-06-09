@@ -1,0 +1,45 @@
+<section>
+  <style>
+    .description p{ font-size: 24px;; }
+  </style>
+
+  {{!  }}
+  <h1>Hi, {{username}}</h1>
+  <div class="description">
+    <p>Your number is <b>{{phone}}</b></p>
+    <p>You are a
+      {{#if (isMale gender)}}
+        Male
+      {{else if (isFemale gender)}}
+        Female
+      {{else if (isEqual gender 0)}}
+        Other
+      {{else}}
+        Gender is not defined
+      {{/if}}
+
+    </p>
+    {{log "here is logged" gender address}}
+    {{address/permanent.city}}
+
+      <p>{{{makeLink "clickHere" "https://google.com" }}}</p>
+
+    {{permalink}}
+    <ul>
+
+      {{#each students}}
+        <li>{{../username}} -> {{username}} -> {{printPerson}}</li>
+
+      {{/each}}
+
+    </ul>
+
+    {{#with (getByIndex students 0)}}
+      {{username}}
+      {{phone}}
+    {{/with}}
+
+
+  </div>
+
+</section>
